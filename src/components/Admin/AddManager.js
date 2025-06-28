@@ -1,0 +1,82 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import LoadingSpinner from '../Common/LoadingSpinner';
+
+const AddManager = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [expertise, setExpertise] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage('');
+    setLoading(true);
+    try {
+      const managerData = {
+        username,
+        password,
+        role: 'Manager', // Fixed role for adding a manager
+        expertise,
+      };
+      await axios.post('http://localhost:8080/api/managers/add', managerData);
+      setMessage('Manager added successfully!');
+      setUsername('');
+      setPassword('');
+      setExpertise('');
+    } catch (error) {
+      const resMessage =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      setMessage(`Error adding manager: ${resMessage}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="card">
+      <h2>Add New Manager</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="expertise">Expertise:</label>
+          <input
+            type="text"
+            id="expertise"
+            value={expertise}
+            onChange={(e) => setExpertise(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="btn" disabled={loading}>
+          {loading ? <LoadingSpinner /> : 'Add Manager'}
+        </button>
+        {message && <p className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
+      </form>
+    </div>
+  );
+};
+
+export default AddManager;

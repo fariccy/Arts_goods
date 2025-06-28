@@ -1,0 +1,34 @@
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.itemCard {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.itemCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.itemDetails h3 {
+  margin: 0 0 10px 0;
+  color: #007bff;
+  font-size: 1.2em;
+}
+
+.itemDetails p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.9em;
+}

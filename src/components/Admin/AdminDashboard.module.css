@@ -1,0 +1,13 @@
+.dashboardContainer {
+  display: flex;
+}
+
+.contentArea {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.contentArea h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
