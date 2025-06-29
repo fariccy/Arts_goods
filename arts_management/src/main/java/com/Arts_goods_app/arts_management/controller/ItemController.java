@@ -22,7 +22,7 @@ public class ItemController {
     private ItemRepository itemRepository;
 
     @Autowired
-    private ManagerRepository managerRepository; // Ensure this is properly injected
+    private ManagerRepository managerRepository;
 
     @PostMapping("/add")
     public ResponseEntity<Item> createItem(

@@ -9,8 +9,8 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "orders") // Use a different name to avoid conflicts
-public class OrderEntity { // Renamed from Order to OrderEntity
+@Table(name = "orders")
+public class OrderEntity {
 
 
     @Id

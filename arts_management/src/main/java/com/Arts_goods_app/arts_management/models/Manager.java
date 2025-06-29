@@ -12,7 +12,7 @@ public class Manager extends AppUser {
 
     private String expertise;
 
-    @OneToMany(mappedBy = "manager") // Corrected from "manger" to "manager"
+    @OneToMany(mappedBy = "manager")
     private Set<Item> items;
 
     public Manager(String expertise) {

@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "app_user") // Use a different name to avoid conflicts
-public class AppUser  { // Renamed from User to AppUser
+@Table(name = "app_user")
+public class AppUser  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

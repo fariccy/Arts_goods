@@ -26,7 +26,7 @@ public class Item {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "manager_id") // Corrected to match the foreign key
+    @JoinColumn(name = "manager_id")
     private Manager manager;
 
     @ManyToMany
@@ -35,7 +35,7 @@ public class Item {
             joinColumns = @JoinColumn(name = "item_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    @JsonIgnore // Prevents infinite recursion during serialization
+    @JsonIgnore
     private Set<OrderEntity> orders;
 
     public Long getId() {
