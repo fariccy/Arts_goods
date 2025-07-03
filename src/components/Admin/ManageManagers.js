@@ -120,7 +120,7 @@ const ManageManagers = () => {
                 {editingManager === manager.id ? (
                   <>
                     <button
-                      className={`${styles.btn} ${styles['edit-btn']}`}
+                      className={`${styles.btn} ${styles['save-btn']}`}
                       onClick={() => handleUpdate(manager.id)}
                     >
                       Save
