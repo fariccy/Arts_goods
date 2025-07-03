@@ -1,4 +1,129 @@
-.registerFormContainer {
-  max-width: 400px;
-  margin: 50px auto;
+/* Wrapper Card */
+.card {
+  background-color: #fff;
+  max-width: 380px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(0, 87, 255, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Title */
+.title {
+  font-size: 26px;
+  color: #111;
+  margin-bottom: 25px;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Input Groups */
+.formGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  user-select: none;
+}
+
+/* Unified Input & Select Styles */
+.formGroup input,
+.formGroup select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #a5b8ff;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f7f9ff;
+  color: #222;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #0057ff;
+  box-shadow: 0 0 8px rgba(0, 87, 255, 0.4);
+}
+
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background-color: #0057ff;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 87, 255, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #003fcc;
+  box-shadow: 0 8px 20px rgba(0, 63, 204, 0.6);
+}
+
+.btn:disabled {
+  background-color: #7ba8ff;
+  cursor: not-allowed;
+}
+
+/* Feedback Message */
+.message {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  user-select: none;
+  padding: 12px 15px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1.5px solid #badbcc;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1.5px solid #f5c2c7;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .card {
+    margin: 40px 20px;
+    padding: 25px 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
 }

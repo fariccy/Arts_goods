@@ -1,0 +1,156 @@
+.card {
+  background: #fff;
+  max-width: 980px;
+  margin: 30px auto;
+  padding: 28px 32px;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 26px;
+  font-size: 1.9rem;
+  color: #1a1a2e;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.message {
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.success {
+  color: #28a745; /* green */
+}
+
+.error {
+  color: #dc3545; /* red */
+}
+
+.rowHeader,
+.row {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.rowHeader {
+  background-color: #0057ff;
+  color: white;
+  font-weight: 700;
+  user-select: none;
+  border-radius: 14px 14px 0 0;
+}
+
+.row:hover {
+  background-color: #f0f4ff;
+}
+
+.cell {
+  flex: 1;
+  padding: 0 12px;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.cell:first-child {
+  flex: 0.5; /* ID column */
+}
+
+.cell:last-child {
+  flex: 1.5; /* Actions column */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Inputs and Selects */
+
+.input,
+.select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 1.8px solid #a5b8ff;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  color: #222;
+  background-color: #fafcff;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #0057ff;
+  box-shadow: 0 0 8px rgba(0, 87, 255, 0.5);
+}
+
+/* Buttons */
+
+.btn {
+  padding: 7px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  user-select: none;
+  min-width: 75px;
+  text-align: center;
+}
+
+/* Save Button - Green */
+.saveBtn {
+  background-color: #28a745;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.5);
+}
+
+.saveBtn:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 18px rgba(33, 136, 56, 0.7);
+}
+
+/* Edit Button - Orange */
+.editBtn {
+  background-color: #146ac0;
+  box-shadow: 0 4px 12px rgba(8, 42, 191, 0.5);
+}
+
+.editBtn:hover {
+  background-color: #1243ac;
+  box-shadow: 0 6px 18px rgba(17, 86, 155, 0.562);
+}
+
+/* Cancel Button - Grey */
+.cancelBtn {
+  background-color: #6c757d;
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.5);
+}
+
+.cancelBtn:hover {
+  background-color: #5a6268;
+  box-shadow: 0 6px 18px rgba(90, 98, 104, 0.7);
+}
+
+/* Delete Button - Red */
+.deleteBtn {
+  background-color: #dc3545;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.5);
+}
+
+.deleteBtn:hover {
+  background-color: #b02a37;
+  box-shadow: 0 6px 18px rgba(176, 42, 55, 0.7);
+}

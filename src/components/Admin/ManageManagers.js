@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoadingSpinner from '../Common/LoadingSpinner';
+import styles from './ManageManagers.module.css';
 
 const ManageManagers = () => {
   const [managers, setManagers] = useState([]);
@@ -44,7 +45,7 @@ const ManageManagers = () => {
   const handleEditClick = (manager) => {
     setEditingManager(manager.id);
     setEditUsername(manager.username);
-    setEditPassword(manager.password); // Note: In a real app, you wouldn't pre-fill passwords
+    setEditPassword(''); // Don't prefill password for security
     setEditExpertise(manager.expertise);
   };
 
@@ -54,7 +55,7 @@ const ManageManagers = () => {
         username: editUsername,
         password: editPassword,
         expertise: editExpertise,
-        role: 'Manager', // Ensure role remains Manager
+        role: 'Manager',
       };
       await axios.put(`http://localhost:8080/api/managers/${id}`, updatedManager);
       setMessage('Manager updated successfully!');
@@ -71,9 +72,13 @@ const ManageManagers = () => {
   }
 
   return (
-    <div className="card">
+    <div className={styles.card}>
       <h2>Manage Managers</h2>
-      {message && <p className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
+      {message && (
+        <p className={`${styles.message} ${message.includes('successfully') ? styles.success : styles.error}`}>
+          {message}
+        </p>
+      )}
       <table>
         <thead>
           <tr>
@@ -93,6 +98,7 @@ const ManageManagers = () => {
                     type="text"
                     value={editUsername}
                     onChange={(e) => setEditUsername(e.target.value)}
+                    className={styles.input}
                   />
                 ) : (
                   manager.username
@@ -104,6 +110,7 @@ const ManageManagers = () => {
                     type="text"
                     value={editExpertise}
                     onChange={(e) => setEditExpertise(e.target.value)}
+                    className={styles.input}
                   />
                 ) : (
                   manager.expertise
@@ -112,13 +119,35 @@ const ManageManagers = () => {
               <td>
                 {editingManager === manager.id ? (
                   <>
-                    <button className="btn" onClick={() => handleUpdate(manager.id)}>Save</button>
-                    <button className="btn btn-secondary" onClick={() => setEditingManager(null)} style={{ marginLeft: '5px' }}>Cancel</button>
+                    <button
+                      className={`${styles.btn} ${styles['edit-btn']}`}
+                      onClick={() => handleUpdate(manager.id)}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className={`${styles.btn} ${styles['cancel-btn']}`}
+                      onClick={() => setEditingManager(null)}
+                      style={{ marginLeft: '8px' }}
+                    >
+                      Cancel
+                    </button>
                   </>
                 ) : (
                   <>
-                    <button className="btn" onClick={() => handleEditClick(manager)}>Edit</button>
-                    <button className="btn btn-danger" onClick={() => handleDelete(manager.id)} style={{ marginLeft: '5px' }}>Delete</button>
+                    <button
+                      className={`${styles.btn} ${styles['edit-btn']}`}
+                      onClick={() => handleEditClick(manager)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className={`${styles.btn} ${styles['delete-btn']}`}
+                      onClick={() => handleDelete(manager.id)}
+                      style={{ marginLeft: '8px' }}
+                    >
+                      Delete
+                    </button>
                   </>
                 )}
               </td>

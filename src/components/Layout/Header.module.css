@@ -1,21 +1,72 @@
 .header {
-  background: #f8f9fa;
-  padding: 10px 20px;
-  border-bottom: 1px solid #e7e7e7;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  text-decoration: none;
-  color: #333;
-  font-size: 24px;
-  font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #61dafb; /* Lighter blue on hover */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .navLink {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navLink:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+}
+
+.btn {
+    background-color: #dc3545; /* Red for logout button */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.userIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2); /* Light background for user icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
 }

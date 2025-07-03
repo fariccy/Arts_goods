@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoadingSpinner from '../Common/LoadingSpinner';
-import styles from './ManageItems.module.css'; // Import CSS module (even if empty for now)
+import styles from './ManageItems.module.css';
 
 const ManageItems = () => {
   const [items, setItems] = useState([]);
@@ -49,7 +49,10 @@ const ManageItems = () => {
 
   const handleUpdate = async (id) => {
     try {
-      await axios.put(`http://localhost:8080/api/items/${id}`, { description: editDescription, price: parseFloat(editPrice) });
+      await axios.put(`http://localhost:8080/api/items/${id}`, {
+        description: editDescription,
+        price: parseFloat(editPrice)
+      });
       setMessage('Item updated successfully!');
       setEditingItem(null);
       fetchItems();
@@ -64,63 +67,89 @@ const ManageItems = () => {
   }
 
   return (
-    <div className="card">
+    <div className={styles.card}>
       <h2>Manage Items</h2>
-      {message && <p className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Manager ID</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>
-                {editingItem === item.id ? (
-                  <textarea
-                    value={editDescription}
-                    onChange={(e) => setEditDescription(e.target.value)}
-                  />
-                ) : (
-                  item.description
-                )}
-              </td>
-              <td>
-                {editingItem === item.id ? (
-                  <input
-                    type="number"
-                    value={editPrice}
-                    onChange={(e) => setEditPrice(e.target.value)}
-                    step="0.01"
-                  />
-                ) : (
-                  `$${item.price ? item.price.toFixed(2) : 'N/A'}`
-                )}
-              </td>
-              <td>{item.manager ? item.manager.id : 'N/A'}</td>
-              <td>
-                {editingItem === item.id ? (
-                  <>
-                    <button className="btn" onClick={() => handleUpdate(item.id)}>Save</button>
-                    <button className="btn btn-secondary" onClick={() => setEditingItem(null)} style={{ marginLeft: '5px' }}>Cancel</button>
-                  </>
-                ) : (
-                  <>
-                    <button className="btn" onClick={() => handleEditClick(item)}>Edit</button>
-                    <button className="btn btn-danger" onClick={() => handleDelete(item.id)} style={{ marginLeft: '5px' }}>Delete</button>
-                  </>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {message && (
+        <p className={`${styles.message} ${message.includes('successfully') ? styles.success : styles.error}`}>
+          {message}
+        </p>
+      )}
+
+      <div className={`${styles.row} ${styles.headerRow}`}>
+        <div className={styles.cellId}>ID</div>
+        <div className={styles.cellDescription}>Description</div>
+        <div className={styles.cellPrice}>Price</div>
+        <div className={styles.cellManager}>Manager ID</div>
+        <div className={styles.cellActions}>Actions</div>
+      </div>
+
+      {items.map((item) => (
+        <div key={item.id} className={styles.row}>
+          <div className={styles.cellId}>{item.id}</div>
+
+          <div className={styles.cellDescription}>
+            {editingItem === item.id ? (
+              <textarea
+                value={editDescription}
+                onChange={(e) => setEditDescription(e.target.value)}
+                className={styles.textarea}
+              />
+            ) : (
+              item.description
+            )}
+          </div>
+
+          <div className={styles.cellPrice}>
+            {editingItem === item.id ? (
+              <input
+                type="number"
+                value={editPrice}
+                onChange={(e) => setEditPrice(e.target.value)}
+                step="0.01"
+                className={styles.inputPrice}
+              />
+            ) : (
+              `$${item.price ? item.price.toFixed(2) : 'N/A'}`
+            )}
+          </div>
+
+          <div className={styles.cellManager}>{item.manager ? item.manager.id : 'N/A'}</div>
+
+          <div className={styles.cellActions}>
+            {editingItem === item.id ? (
+              <>
+                <button
+                  className={`${styles.btn} ${styles.btnSuccess}`}
+                  onClick={() => handleUpdate(item.id)}
+                >
+                  Save
+                </button>
+                <button
+                  className={`${styles.btn} ${styles.btnSecondary}`}
+                  onClick={() => setEditingItem(null)}
+                >
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  className={`${styles.btn}`}
+                  onClick={() => handleEditClick(item)}
+                >
+                  Edit
+                </button>
+                <button
+                  className={`${styles.btn} ${styles.btnDanger}`}
+                  onClick={() => handleDelete(item.id)}
+                >
+                  Delete
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

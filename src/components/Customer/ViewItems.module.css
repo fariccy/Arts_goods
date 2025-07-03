@@ -1,34 +1,77 @@
+.card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
 .itemList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
+  max-height: 600px; /* scrollable container height */
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .itemCard {
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
+  border-radius: 10px;
   padding: 15px;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .itemCard img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.itemDetails {
+  text-align: center;
 }
 
 .itemDetails h3 {
-  margin: 0 0 10px 0;
-  color: #007bff;
-  font-size: 1.2em;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
 }
 
 .itemDetails p {
-  margin: 5px 0;
+  font-size: 14px;
   color: #555;
-  font-size: 0.9em;
+  margin: 4px 0;
 }

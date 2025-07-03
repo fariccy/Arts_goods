@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import LoadingSpinner from '../Common/LoadingSpinner';
+import styles from './AddManager.module.css'; // Corrected import for CSS module
 
 const AddManager = () => {
   const [username, setUsername] = useState('');
@@ -37,44 +38,50 @@ const AddManager = () => {
   };
 
   return (
-    <div className="card">
-      <h2>Add New Manager</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="expertise">Expertise:</label>
-          <input
-            type="text"
-            id="expertise"
-            value={expertise}
-            onChange={(e) => setExpertise(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn" disabled={loading}>
-          {loading ? <LoadingSpinner /> : 'Add Manager'}
-        </button>
-        {message && <p className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
-      </form>
+    <div className={styles.addManagerWrapper}>
+      <div className={styles.card}>
+        <h2>Add New Manager</h2>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.formGroup}>
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="expertise">Expertise:</label>
+            <input
+              type="text"
+              id="expertise"
+              value={expertise}
+              onChange={(e) => setExpertise(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className={styles.btn} disabled={loading}>
+            {loading ? <LoadingSpinner /> : 'Add Manager'}
+          </button>
+          {message && (
+            <p className={`${styles.message} ${message.includes('successfully') ? styles.success : styles.error}`}>
+              {message}
+            </p>
+          )}
+        </form>
+      </div>
     </div>
   );
 };

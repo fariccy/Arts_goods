@@ -1,13 +1,34 @@
 .dashboardContainer {
   display: flex;
+  height: 100vh;
+  background-color: #f5f7fa;
 }
 
 .contentArea {
-  flex-grow: 1;
-  padding: 20px;
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-left: 1px solid #e0e0e0;
 }
 
 .contentArea h1 {
+  font-size: 24px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.message {
+  padding: 12px;
+  margin: 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }

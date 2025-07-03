@@ -1,0 +1,118 @@
+.card {
+  background: #fff;
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 30px 35px;
+  border-radius: 14px;
+  box-shadow: 0 14px 28px rgba(0, 60, 150, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 60, 150, 0.15);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  letter-spacing: 0.04em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 1.05rem;
+  user-select: none;
+}
+
+.input,
+.textarea,
+.fileInput {
+  padding: 12px 15px;
+  font-size: 1.05rem;
+  border: 2px solid #a9c1ff;
+  border-radius: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
+  color: #222;
+  background-color: #fafcff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus,
+.fileInput:focus {
+  border-color: #0057ff;
+  outline: none;
+  box-shadow: 0 0 12px rgba(0, 87, 255, 0.6);
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.fileInput {
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #0057ff; /* bright blue */
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 87, 255, 0.45);
+  user-select: none;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #003fcc;
+  box-shadow: 0 8px 28px rgba(0, 63, 204, 0.6);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.message {
+  margin-top: 22px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.success {
+  color: #28a745; /* green */
+}
+
+.error {
+  color: #dc3545; /* red */
+}

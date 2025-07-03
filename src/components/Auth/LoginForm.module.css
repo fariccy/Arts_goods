@@ -1,4 +1,117 @@
 .loginFormContainer {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 70px auto;
+  padding: 30px 30px 35px;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 15px 30px rgba(0, 87, 255, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.loginFormContainer:hover {
+  transform: translateY(-5px);
+}
+
+.title {
+  font-size: 28px;
+  color: #060606;
+  margin-bottom: 28px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #121214;
+  user-select: none;
+}
+
+.input {
+  width: 100%; /* Full width of the formGroup container */
+  padding: 12px 15px;
+  border: 2px solid #a5b8ff;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f7f9ff;
+  color: #222;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0057ff;
+  box-shadow: 0 0 10px rgba(0, 87, 255, 0.4);
+}
+
+.btn {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #0057ff;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 87, 255, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #003fcc;
+  box-shadow: 0 8px 22px rgba(0, 63, 204, 0.7);
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  user-select: none;
+  padding: 12px 15px;
+  border-radius: 10px;
+  max-width: 100%;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1.5px solid #f5c2c7;
+}
+
+.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1.5px solid #badbcc;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .loginFormContainer {
+    margin: 40px 20px;
+    padding: 25px 20px 30px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoadingSpinner from '../Common/LoadingSpinner';
-import styles from './ViewItems.module.css'; // Import CSS module
+import styles from './ViewItems.module.css'; // Import CSS module for styling
 
 const ViewItems = () => {
   const [items, setItems] = useState([]);
@@ -31,7 +31,7 @@ const ViewItems = () => {
 
   return (
     <div className="card">
-      <h2>Available Items</h2>
+      <h1>Available Items</h1>
       {message && <p className={`message ${message.includes('Error') ? 'error' : ''}`}>{message}</p>}
       <div className={styles.itemList}>
         {items.length === 0 ? (

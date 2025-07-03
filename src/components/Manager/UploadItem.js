@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoadingSpinner from '../Common/LoadingSpinner';
-import styles from './UploadItem.module.css'; // Import CSS module (even if empty for now)
+import styles from './UploadItem.module.css'; // CSS module import
 
 const UploadItem = () => {
   const [description, setDescription] = useState('');
@@ -66,19 +66,20 @@ const UploadItem = () => {
   };
 
   return (
-    <div className="card">
+    <div className={styles.card}>
       <h2>Upload New Item</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.formGroup}>
           <label htmlFor="description">Description:</label>
           <textarea
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
+            className={styles.textarea}
           />
         </div>
-        <div className="form-group">
+        <div className={styles.formGroup}>
           <label htmlFor="price">Price:</label>
           <input
             type="number"
@@ -87,22 +88,32 @@ const UploadItem = () => {
             onChange={(e) => setPrice(e.target.value)}
             step="0.01"
             required
+            className={styles.input}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="image">Image:</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="image-upload">Image:</label>
           <input
             type="file"
             id="image-upload"
             accept="image/*"
             onChange={handleFileChange}
             required
+            className={styles.fileInput}
           />
         </div>
-        <button type="submit" className="btn" disabled={loading}>
+        <button type="submit" className={styles.btn} disabled={loading}>
           {loading ? <LoadingSpinner /> : 'Upload Item'}
         </button>
-        {message && <p className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
+        {message && (
+          <p
+            className={`${styles.message} ${
+              message.includes('successfully') ? styles.success : styles.error
+            }`}
+          >
+            {message}
+          </p>
+        )}
       </form>
     </div>
   );
