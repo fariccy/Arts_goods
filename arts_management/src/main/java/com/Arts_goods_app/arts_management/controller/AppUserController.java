@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/users")
+@RequestMapping("1`  ")
 public class AppUserController {
 
     @Autowired
@@ -47,7 +47,7 @@ public class AppUserController {
         }
     }
 
-    // PUT - Update user
+
     @PutMapping("/{id}")
     public ResponseEntity<AppUser> updateUser(@PathVariable Long id, @RequestBody AppUser userDetails) {
         return appUserRepository.findById(id)
